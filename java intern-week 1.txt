@@ -1,0 +1,193 @@
+Sarim Farooq -Vault of Codes -Java InternShip - Week 1 Codes
+
+Code 1
+IMPROVED CODE:
+
+package internshipvoc;
+// Vault of Codes Java intersnhip p1
+public class ArrayManipulation {
+    public static void main(String[] args) {
+        // Initialising Array
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < numbers.length; i++) {
+            /* Sarim Farooq
+            for loop conditon had <= , which made the program give an error (array out of bound)
+            at i=5, so i removed the < symbol
+             */
+            System.out.println(numbers[i]);
+        }
+    }
+}
+
+
+-----------------
+
+
+Code2
+IMPROVED CODE:
+package internshipvoc;
+/* Error fix
+In the main method ,the car object is calling method stop which
+doesnt exist , so we have to add stop method
+ */
+
+// Vault of Codes Java intersnhip p2
+
+class Car {
+    private String make;
+    private String model;
+
+    public Car(String make, String model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    public void start() {
+        System.out.println("Starting the car.");
+    }
+//creating stop method
+    public void stop() {
+        System.out.println("Stopping the car.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Camry");
+        car.start();
+        car.stop();
+    }
+}
+
+-----------------
+
+
+
+Code3:
+THE IMPROVED CODE:
+
+public class ExceptionHandling {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+// Vault of Codes Java intersnhip p3
+// Sarim Farooq
+        try {
+            System.out.println(numbers[10]); // Accessing an out-of-bounds index
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index out of bounds.");
+        }
+   
+     
+ /*
+       I added a try-catch block around the division operation to handle the
+        ArithmeticException that occurs when dividing by zero.
+        
+*/
+
+
+        try {
+            int result = divide(10, 0); // Attempting to divide by zero
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Division by zero is not allowed.");
+        }
+    }
+
+    public static int divide(int a, int b) {
+        //Inside the method, we check if b is zero and, if so, throw an ArithmeticException
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+        return a / b;
+    }
+}
+
+-----------------
+
+
+Code4:
+THE IMPROVED CODE:
+
+package internshipvoc;
+
+// Vault of Codes Java intersnhip p4
+/*
+Given code is correct and is giving correct output
+ */
+
+public class Fibonacci {
+    public static int fibonacci(int n) {
+        if (n <= 1)
+            return n;
+        else
+            return fibonacci(n-1) + fibonacci(n-2);
+    }
+
+    public static void main(String[] args) {
+        int n = 7;
+        int result = fibonacci(n);
+        System.out.println("The Fibonacci number at position " + n + " is: " + result);
+    }
+}
+
+The given code is already correct and is giving apporopriate outputs , so no change
+
+
+
+-----------------
+
+
+Code5:
+THE IMPROVED CODE
+
+package internshipvoc;
+import java.util.*;
+
+// Vault of Codes Java intersnhip p5
+// Sarim Farooq
+
+
+public class PrimeNumbers {
+    public static List<Integer> findPrimes(int n) {
+        List<Integer> primes = new ArrayList<>();
+
+        /*
+        Inn the program the condition to check prime no
+        was wrong , i.e if the number is not divisible by any number less
+        than it
+
+         */
+
+        for (int i = 2; i <= n; i++) {  // Iterate from 2 to n
+            boolean isPrime = true;  // Assume i is prime initially
+            if (i == 2) {  // Special case for 2, whhich is the only even prime
+                primes.add(i);  // Add 2 to the primes list
+                continue;  // Move to the next iteration
+            }
+            // the 2nd loop and condition to check only till the root of the number
+            for (int j = 2; j * j <= i; j++) {  // Check divisors up to the square root of i
+                if (i % j == 0) {  // If i is divisible by j, it's not prime
+                    isPrime = false;  // Update isPrime to false
+                    break;  // Exit the inner loop
+                }
+            }
+            if (isPrime) {  // If isPrime is still true, i is prime
+                primes.add(i);  // Add i to the primes list
+            }
+        }
+        return primes;  // Return the list of prime numbers
+    }
+
+    public static void main(String[] args) {
+        int n = 20;
+        List<Integer> primeNumbers = findPrimes(n);  // Find prime numbers up to n
+        System.out.println("Prime numbers up to " + n + ": " + primeNumbers);  // Print the prime numbers
+    }
+}
+
+
+
+
+
+-----------------
